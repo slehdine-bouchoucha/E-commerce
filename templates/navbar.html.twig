@@ -1,0 +1,29 @@
+<nav class="navbar bg-dark navbar-dark navbar-expand-lg" style="margin-bottom: 0;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">TunMart <img src="{{ asset('images/TUN.png') }}" alt="Image" class="navbar-image" style="height: 40px; width: auto;" /></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/store">Store</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">My cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/products">Manager</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto"> <!-- Add this new <ul> element for the right-aligned items -->
+        <li class="nav-item">
+          <a href="{{ path('app_logout') }}" class="nav-link">Logout &#215;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

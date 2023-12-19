@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+{% block body %}
+{% if app.user %}
+{% include 'navbar.html.twig' %}
+<div class="mb-3">
+
+</div>
+{% endif %}
+
+ {% include 'slider.html.twig' %}
+{% endblock %}

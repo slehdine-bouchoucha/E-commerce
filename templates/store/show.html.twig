@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Products{% endblock %}
+
+{% block body %}
+{% include 'navbar.html.twig' %}
+    <h1>Products</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="image-container">
+                <img src="images/{{ product.image }}" style="width:100%">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <table class="table">
+                <tbody>
+                    
+                    <tr>
+                        <th>Name</th>
+                        <td>{{ product.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ref</th>
+                        <td>{{ product.Ref }}</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ product.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prix</th>
+                        <td>{{ product.Prix }} $</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="{{ path('app_store') }}" class="btn btn-warning">back to list</a>
+        </div>
+    </div>
+{% endblock %}

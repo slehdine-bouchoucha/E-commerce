@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Products index{% endblock %}
+
+{% block body %}
+{% include 'navbar.html.twig' %}
+    <h1>Our Products</h1>
+<form class="mb-3" method="GET">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search" placeholder="Search by name" value="{{ app.request.query.get('search') }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </form>
+    <div class="row">
+    {% for product in products %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <img src="{{ asset('images/' ~ product.image) }}" class="card-img-top" alt="Product Image" style="width:100%">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }}</p>
+                    <p class="card-text">Price: {{ product.Prix }} $</p>
+                    <a href="{{ path('app_store_show', {'id': product.id}) }}" class="btn btn-warning btn-rounded">Show</a>
+                    <a href="add1/{{product.id}}" class="btn btn-success">Buy now</a>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <div class="col-md-12">
+            <p>No records found</p>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}

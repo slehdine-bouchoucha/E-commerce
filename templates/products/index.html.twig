@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Products index{% endblock %}
+
+{% block body %}
+{% include 'navbar.html.twig' %}
+    <h1>Products index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Ref</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.Ref }}</td>
+                <td>{{ product.description }}</td>
+                <td><img src="{{ asset('images/' ~ product.image) }}" alt="Product Image" style="width:100px"></td>
+                <td>{{ product.Prix }}</td>
+                <td>
+                    <a href="{{ path('app_products_show', {'id': product.id}) }}" class="btn btn-warning btn-rounded" >Show Product</a>
+                    <a href="{{ path('edit', {'id': product.id}) }}" class="btn btn-secondary btn-rounded">Edit Product</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+<div class="d-flex justify-content-center"><a href="{{ path('app_products_new') }}" class="btn btn-success">Create new</a></div>
+
+    
+{% endblock %}
